@@ -16,11 +16,11 @@ public class Controls {
 		return INSTANCE;
 	}
 	
-	private boolean[] xboxButtonStates = new boolean[Constants.XBOX_CONTROLLER_BUTTON_COUNT];
-	private boolean[] xboxButtonPressed = new boolean[Constants.XBOX_CONTROLLER_BUTTON_COUNT];
+	private boolean[] xboxButtonStates = new boolean[Constants.XBOX_CONTROLLER_BUTTON_COUNT + 1];
+	private boolean[] xboxButtonPressed = new boolean[Constants.XBOX_CONTROLLER_BUTTON_COUNT + 1];
 
 	public void feed() {
-		for(int i = 0; i < Constants.XBOX_CONTROLLER_BUTTON_COUNT; i++) {
+		for(int i = 1; i <= Constants.XBOX_CONTROLLER_BUTTON_COUNT; i++) {
 			xboxButtonPressed[i] = false;
 			boolean val = DriverStation.getInstance().getStickButton(Constants.XBOX_CONTROLLER, (byte) i);
 			if(!xboxButtonStates[i] && val) {
